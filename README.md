@@ -34,10 +34,12 @@
 Использование выглядит следующим образом:
     
 Объявление
+
     ListRand nodesSpace = CreateListRand(listNodes);
 
 
 Сериализация
+
     using (FileStream fs = new FileStream("nodes.json", FileMode.OpenOrCreate))
     {
         nodesSpace.Serialize(fs);
@@ -45,6 +47,7 @@
 
 
 Десериализация
+
     using (FileStream fs = new FileStream("nodes.json", FileMode.Open))
     {
         nodesSpace.Deserialize(fs);
