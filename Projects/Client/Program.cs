@@ -7,7 +7,7 @@ namespace LinkedListSample
         public static void Main(string[] args)
         {
             //Клиентская Логика...
-
+            var requedPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
             //Создаём узлы
             List<ListNode> listNodes = new List<ListNode>()
             {
@@ -25,7 +25,7 @@ namespace LinkedListSample
             ListRand nodesSpace = CreateListRand(listNodes);
 
             //Парсим в json
-            using (FileStream fs = new FileStream("nodes.json", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(requedPath + "/nodes.json", FileMode.OpenOrCreate))
             {
                 nodesSpace.Serialize(fs);
             }
@@ -39,7 +39,7 @@ namespace LinkedListSample
 
 
             //Парсим json в объект
-            using (FileStream fs = new FileStream("nodes.json", FileMode.Open))
+            using (FileStream fs = new FileStream(requedPath + "/nodes.json", FileMode.Open))
             {
                 nodesSpace.Deserialize(fs);
             }
