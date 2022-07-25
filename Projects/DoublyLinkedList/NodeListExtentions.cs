@@ -55,26 +55,10 @@ namespace DoublyLinkedList
                 Dictionary<ListNode, int> nodeDict = new Dictionary<ListNode, int>();
                 ListNode currentNode = list.Head;
                 int index = 0;
-                bool inRand = false;
+
                 while (currentNode != null && nodeDict.ContainsKey(currentNode) == false)
                 {
                     nodeDict.Add(currentNode, index++);
-
-
-                    if(inRand)
-                    {
-                        inRand = false;
-                        currentNode = currentNode.Prev.Next;
-                        continue;
-                    }
-
-                    //Добовляем Rand
-                    if (currentNode.Rand != null && nodeDict.ContainsKey(currentNode) == false)
-                    {
-                        inRand = true;
-                        currentNode = currentNode.Rand;
-                        continue;
-                    }
 
                     currentNode = currentNode.Next;
                     //и так пока .Next != null                   
